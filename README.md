@@ -1,5 +1,5 @@
 # Laravel Passport Custom JWT Claims
-[![Build Status](https://travis-ci.org/benbjurstrom/passport-custom-jwt-claims.svg?branch=master)](https://travis-ci.org/benbjurstrom/passport-custom-jwt-claims)
+[![Build Status](https://travis-ci.org/benbjurstrom/passport-custom-jwt-claims.svg)](https://travis-ci.org/benbjurstrom/passport-custom-jwt-claims)
 Customize the JWT claims in [Laravel/Passport](https://github.com/laravel/passport) access tokens
 
 ## What are JWT claims?

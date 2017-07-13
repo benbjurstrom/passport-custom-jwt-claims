@@ -14,7 +14,7 @@
         "oidc"
     ],
     "require": {
-        "laravel/passport": "^2.0"
+        "laravel/passport": "^3.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",

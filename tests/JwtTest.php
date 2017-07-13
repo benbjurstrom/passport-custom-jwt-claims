@@ -14,7 +14,7 @@ class JwtTest extends TestCase
         $user  = factory(User::class)->create();
         $token = $user->createToken('Test Token')->accessToken;
 
-        $key = file_get_contents(__DIR__ . '/../vendor/orchestra/testbench/fixture/storage/oauth-public.key');
+        $key = file_get_contents(__DIR__ . '/../vendor/orchestra/testbench-core/fixture/storage/oauth-public.key');
         $token = JWT::decode($token, $key, ['RS256']);
 
         $this->assertObjectHasAttribute('iss', $token);
