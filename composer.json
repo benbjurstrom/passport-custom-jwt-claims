@@ -15,11 +15,11 @@
     ],
     "require": {
         "php":"^7.0",
-        "laravel/passport": "^4.0"
+        "laravel/passport": "^5.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~6.0",
-        "orchestra/testbench": "^3.5"
+        "phpunit/phpunit": "~7.0",
+        "orchestra/testbench": "^3.6"
     },
     "license": "MIT",
     "authors": [
