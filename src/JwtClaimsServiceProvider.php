@@ -6,6 +6,8 @@ use Laravel\Passport\PassportServiceProvider;
 use Laravel\Passport\Bridge\ClientRepository;
 use Laravel\Passport\Bridge\ScopeRepository;
 use League\OAuth2\Server\AuthorizationServer;
+use League\OAuth2\Server\CryptKey;
+
 
 class JwtClaimsServiceProvider extends PassportServiceProvider
 {
@@ -30,8 +32,8 @@ class JwtClaimsServiceProvider extends PassportServiceProvider
             $this->app->make(ClientRepository::class),
             $this->app->make(AccessTokenRepository::class), // BenBjurstrom\JwtClaims\AccessTokenRepository
             $this->app->make(ScopeRepository::class),
-            'file://'.Passport::keyPath('oauth-private.key'),
-            'file://'.Passport::keyPath('oauth-public.key')
+            new CryptKey( 'file://'.Passport::keyPath('oauth-private.key'), null, false ),
+            app('encrypter')->getKey()
         );
     }
 
