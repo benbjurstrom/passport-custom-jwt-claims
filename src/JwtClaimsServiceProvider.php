@@ -30,8 +30,8 @@ class JwtClaimsServiceProvider extends PassportServiceProvider
             $this->app->make(ClientRepository::class),
             $this->app->make(AccessTokenRepository::class), // BenBjurstrom\JwtClaims\AccessTokenRepository
             $this->app->make(ScopeRepository::class),
-            'file://'.Passport::keyPath('oauth-private.key'),
-            'file://'.Passport::keyPath('oauth-public.key')
+            $this->makeCryptKey('oauth-private.key'),
+            app('encrypter')->getKey()
         );
     }
 
