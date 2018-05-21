@@ -35,6 +35,24 @@ using OpenID Connect. For example, with this package it is possible to use a Lar
 [Couchbase Sync Gateway](https://developer.couchbase.com/documentation/mobile/1.4/guides/authentication/openid/index.html) 
 server.
 
+If we decode the token after using custom claims you would get the following JWT payload object:
+```json
+{
+  "aud": "c8e104f0-0562-11e7-905b-3d77df97f2f8",
+  "jti": "9e70128f990e1ef244af074b43306a4f45beab6553396168228bf876ce01005224fa17937d0f0157",
+  "iat": 1489901755,
+  "nbf": 1489901755,
+  "exp": 1521437755,
+  "sub": "c8df99a0-0562-11e7-9082-bfd7aa3311e8",
+  "scopes": [],
+  "user": {
+    "name": "User Name",
+    "email": "user@email.com"
+  },
+  "iss": "https://domain.com"
+}
+```
+
 ##  Installation
 Install the package via composer:
 ```bash
@@ -65,6 +83,17 @@ This is the contents of the published file. Add additional claims as needed.
 
 ```php
 return [
+    /*
+    |--------------------------------------------------------------------------
+    | User Object
+    |--------------------------------------------------------------------------
+    |
+    | Should user claims be included as an object. e.g. "user": { ... }
+    |
+    */
+    'user_object'      => true,
+    'user_object_name' => 'user',
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -79,6 +108,7 @@ return [
         'name' => 'name',
         'email' => 'email',
     ],
+    
 
     /*
     |--------------------------------------------------------------------------
