@@ -25,7 +25,7 @@ class JwtTest extends TestCase
 
         $this->assertEquals($token->name, $user->name);
         $this->assertEquals($token->email, $user->email);
-        $this->assertEquals($token->iss, url(''));
+        $this->assertEquals($token->iss, env('APP_URL', ''));
     }
 
     /**
@@ -46,6 +46,6 @@ class JwtTest extends TestCase
 
         $this->assertEquals($token->user->name, $user->name);
         $this->assertEquals($token->user->email, $user->email);
-        $this->assertEquals($token->iss, url(''));
+        $this->assertEquals($token->iss, env('APP_URL', ''));
     }
 }
