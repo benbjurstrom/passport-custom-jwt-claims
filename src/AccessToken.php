@@ -27,9 +27,19 @@ class AccessToken extends PassportAccessToken
             ->setSubject($this->getUserIdentifier())
             ->set('scopes', $this->getScopes());
 
-        // set user claims
-        foreach($claims['user_claims'] as $key => $claim) {
-            $builder = $builder->set($key, $user->$claim);
+
+        if($claims['user_object']) {
+            // set user object
+            $userData = [];
+            foreach($claims['user_claims'] as $key => $claim) {
+                $userData[$key] = $user->$claim;
+            }
+            $builder = $builder->set($claims['user_object_name'], $userData);
+        } else {
+            // set user claims
+            foreach($claims['user_claims'] as $key => $claim) {
+                $builder = $builder->set($key, $user->$claim);
+            }
         }
 
         // set app claims
