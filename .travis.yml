@@ -2,6 +2,6 @@ language: php
 php:
   - '7.1'
 before_script:
-  - chmod 600 vendor/orchestra/testbench-core/laravel/storage/oauth-private.key
   - composer install --prefer-source
+  - chmod 600 vendor/orchestra/testbench-core/laravel/storage/oauth-private.key
 script: phpunit
