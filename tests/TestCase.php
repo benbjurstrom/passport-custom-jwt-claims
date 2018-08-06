@@ -21,6 +21,9 @@ abstract class TestCase extends Orchestra
         $this->artisan('migrate');
         $this->artisan('passport:install');
 
+        // Chmod private key to 600
+        chmod(__DIR__ . '/../vendor/orchestra/testbench-core/laravel/storage/oauth-private.key', 0600);
+
     }
     /**
      * @param \Illuminate\Foundation\Application $app
